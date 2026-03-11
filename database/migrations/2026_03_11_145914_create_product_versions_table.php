@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('product_versions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('product', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->string('name');
             $table->text('description');
