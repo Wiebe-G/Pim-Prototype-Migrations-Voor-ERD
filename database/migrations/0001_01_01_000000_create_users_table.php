@@ -23,7 +23,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE users ADD CONSTRAINT chk_role CHECK (role IN (0, 1, 2))');
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement('ALTER TABLE users ADD CONSTRAINT chk_role CHECK (role IN (0, 1, 2))');
+        }
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
