@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sync_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('run_id')->constrained('sync_runs', 'id')->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained('product', 'id')->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
             $table->boolean('status');
             $table->timestamps();
         });

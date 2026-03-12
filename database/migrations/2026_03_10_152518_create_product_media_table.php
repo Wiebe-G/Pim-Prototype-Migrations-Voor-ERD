@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('product_media', function (Blueprint $table) {
             // aparte entry voor elke foto of video (maak het in de controller zo dat het foto en ook bijv. mp4 accepteert
             $table->id();
-            $table->foreignId('product_id')->constrained('product', 'id')->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
             $table->string('path')->unique();
             $table->timestamps();
         });
