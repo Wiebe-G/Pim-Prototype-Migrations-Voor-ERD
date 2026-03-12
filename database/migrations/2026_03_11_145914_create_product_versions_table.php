@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
-            $table->string('name');
+            $table->string('SKU')->unique();
+            $table->string('EAN')->unique();
+            $table->string('brand')->unique();
+            $table->string('name')->unique();
             $table->text('description');
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('stock');
